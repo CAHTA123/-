@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://c1xl5wmq11tau"]
+
+[ext_resource type="Script" path="res://Scripts/obj.gd" id="1_w6kih"]
+[ext_resource type="Texture2D" uid="uid://bebbkoa5rrbet" path="res://Sprites/Obj/123.png" id="2_u2y5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hqit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7vd3"]
+atlas = ExtResource("2_u2y5b")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nrcg"]
+atlas = ExtResource("2_u2y5b")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qfgu"]
+atlas = ExtResource("2_u2y5b")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dcq3"]
+atlas = ExtResource("2_u2y5b")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xabl"]
+atlas = ExtResource("2_u2y5b")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlni2"]
+atlas = ExtResource("2_u2y5b")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibbwf"]
+atlas = ExtResource("2_u2y5b")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7ltu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7vd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nrcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qfgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dcq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xabl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlni2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibbwf")
+}],
+"loop": false,
+"name": &"Boom",
+"speed": 40.0
+}]
+
+[node name="obj" type="CharacterBody2D" groups=["Weapon"]]
+script = ExtResource("1_w6kih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0hqit")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Death" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q7ltu")
+animation = &"Boom"
+
+[connection signal="animation_finished" from="Death" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,0 +1,257 @@
+[gd_scene load_steps=19 format=3 uid="uid://tua1d3r4gs4r"]
+
+[ext_resource type="AudioStream" uid="uid://c53vq30rpkphu" path="res://Audio/Menu.mp3" id="1_egr6i"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_j7b3d"]
+[ext_resource type="PackedScene" uid="uid://ddx7i43ig8p51" path="res://Scenes/settings.tscn" id="2_6olnx"]
+[ext_resource type="Script" path="res://Scripts/Mouse.gd" id="2_fy1ow"]
+[ext_resource type="Texture2D" uid="uid://bu47cwgpqad6t" path="res://Sprites/Menu/BG.png" id="2_jchx2"]
+[ext_resource type="Texture2D" uid="uid://dd47a0jni2nfl" path="res://Sprites/Mouse.png" id="2_mviro"]
+[ext_resource type="Material" uid="uid://upe333xp2447" path="res://Bonus/new_shader_material.tres" id="3_0fvrq"]
+[ext_resource type="Texture2D" uid="uid://c4of7l53xbejs" path="res://Sprites/Menu/Menu+.png" id="3_l0hab"]
+[ext_resource type="Texture2D" uid="uid://dt34jjlb7tvn8" path="res://Sprites/Menu/BG2.png" id="3_l6kov"]
+[ext_resource type="FontFile" uid="uid://cyf5snauf0prj" path="res://Bonus/boorsok.otf" id="3_xan7g"]
+[ext_resource type="Texture2D" uid="uid://cxkilp2mg4ius" path="res://Bonus/new_viewport_texture.tres" id="4_auo40"]
+[ext_resource type="Texture2D" uid="uid://dhxpxfkyyvyss" path="res://Sprites/Menu/Play.png" id="7_8m4ss"]
+[ext_resource type="Texture2D" uid="uid://cgr168ud34vjh" path="res://Sprites/Menu/Settings.png" id="8_ui375"]
+[ext_resource type="Texture2D" uid="uid://bvxmb6hsadhke" path="res://Sprites/Menu/Exit.png" id="9_2i0h0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ltmo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hnxvv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufsbh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udrvl"]
+
+[node name="Menu" type="Node2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_j7b3d")
+
+[node name="xxx" type="SubViewportContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="1" type="SubViewport" parent="xxx"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Bg2" type="Sprite2D" parent="xxx/1"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("3_l6kov")
+region_rect = Rect2(9.22, 0, 0, 0)
+
+[node name="Bg" type="Sprite2D" parent="xxx/1"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("2_jchx2")
+region_rect = Rect2(9.22, 0, 0, 0)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="xxx/1"]
+
+[node name="Buttons" type="Node2D" parent="xxx/1"]
+position = Vector2(960, 800)
+
+[node name="Menu+" type="Sprite2D" parent="xxx/1/Buttons"]
+modulate = Color(1, 1, 1, 0.317647)
+position = Vector2(0, -50)
+scale = Vector2(0.6, 1.4)
+texture = ExtResource("3_l0hab")
+
+[node name="Play" type="Button" parent="xxx/1/Buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -300.0
+offset_right = 75.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 75)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2ltmo")
+flat = true
+
+[node name="Play" type="Label" parent="xxx/1/Buttons/Play"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.9003
+offset_top = -13.82
+offset_right = 90.0997
+offset_bottom = 46.18
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 30)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("3_xan7g")
+theme_override_font_sizes/font_size = 75
+text = "play"
+
+[node name="Play2" type="Sprite2D" parent="xxx/1/Buttons/Play"]
+position = Vector2(75, 75)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_8m4ss")
+
+[node name="Settings" type="Button" parent="xxx/1/Buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -120.0
+offset_right = 75.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hnxvv")
+flat = true
+
+[node name="Settings" type="Label" parent="xxx/1/Buttons/Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.9003
+offset_top = -13.82
+offset_right = 90.0997
+offset_bottom = 46.18
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 30)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("3_xan7g")
+theme_override_font_sizes/font_size = 75
+text = "Settings"
+
+[node name="Settings2" type="Sprite2D" parent="xxx/1/Buttons/Settings"]
+position = Vector2(75, 75)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_ui375")
+
+[node name="Exit" type="Button" parent="xxx/1/Buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 50.0
+offset_right = 75.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ufsbh")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="Label" parent="xxx/1/Buttons/Exit"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -15.0
+offset_right = 80.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 30)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("3_xan7g")
+theme_override_font_sizes/font_size = 75
+text = "exit"
+
+[node name="Exit2" type="Sprite2D" parent="xxx/1/Buttons/Exit"]
+position = Vector2(75, 75)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_2i0h0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+material = ExtResource("3_0fvrq")
+texture = ExtResource("4_auo40")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0.45098)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1920.0
+offset_top = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+color = Color(0, 0, 0, 1)
+
+[node name="Settings" parent="." instance=ExtResource("2_6olnx")]
+visible = false
+position = Vector2(-960, -540)
+
+[node name="Button" type="Button" parent="Settings"]
+offset_left = 42.0
+offset_top = 31.0
+offset_right = 142.0
+offset_bottom = 131.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_udrvl")
+text = "X"
+flat = true
+
+[node name="Mouse" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_mviro")
+script = ExtResource("2_fy1ow")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_egr6i")
+autoplay = true
+
+[node name="napr" type="Node2D" parent="."]
+visible = false
+position = Vector2(60, -260)
+
+[connection signal="mouse_entered" from="xxx/1/Buttons/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="xxx/1/Buttons/Play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="xxx/1/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="xxx/1/Buttons/Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="xxx/1/Buttons/Settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="xxx/1/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="xxx/1/Buttons/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="xxx/1/Buttons/Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="xxx/1/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Settings/Button" to="." method="_on_button_pressed"]

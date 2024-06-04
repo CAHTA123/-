@@ -1,0 +1,20 @@
+{
+  "woodsword": {
+	"ID": "1",
+	"name": "Деревянный меч",
+	"description": "Слабый деревянный меч!",
+	"icon": "woodsword.png",
+  },
+  "stonesword": {
+	"ID": "2",
+	"name": "Каменный Меч",
+	"description": "обычный каменный меч , чуть сильнее деревянного",
+	"icon": "stonesword.png",
+  },
+  "ironsword": {
+	"ID": "3",
+	"name": "Железный Меч",
+	"description": "Старый ржавый меч",
+	"icon": "ironsword.png",
+  }
+}

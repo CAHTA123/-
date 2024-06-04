@@ -1,0 +1,14 @@
+Label
+NinePatchRect
+Panel
+Sprite2D
+GridContainer
+Control
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+CharacterBody2D
+Camera2D
+Node2D
+ShaderGlobalsOverride
+AnimationPlayer

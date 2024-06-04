@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2qbgf7yjwrdp"]
+
+[ext_resource type="Script" path="res://Scripts/Interface.gd" id="1_e6sai"]
+[ext_resource type="PackedScene" uid="uid://b1k8jhg0ek3aw" path="res://Scenes/player.tscn" id="1_vqn3y"]
+[ext_resource type="PackedScene" uid="uid://c1xl5wmq11tau" path="res://Scenes/obj.tscn" id="2_bgm3c"]
+[ext_resource type="FontFile" uid="uid://cyf5snauf0prj" path="res://Bonus/boorsok.otf" id="4_lslqc"]
+[ext_resource type="Texture2D" uid="uid://dd47a0jni2nfl" path="res://Sprites/Mouse.png" id="5_fni2q"]
+[ext_resource type="Script" path="res://Scenes/Sprite2D.gd" id="5_hdk6y"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_e6sai")
+
+[node name="Player" parent="." instance=ExtResource("1_vqn3y")]
+scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 2
+
+[node name="obj" parent="." instance=ExtResource("2_bgm3c")]
+position = Vector2(236, 21)
+scale = Vector2(0.2, 0.2)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 76.0
+offset_top = 22.0
+offset_right = 176.0
+offset_bottom = 122.0
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_lslqc")
+theme_override_font_sizes/font_size = 50
+text = "
+
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="mouse" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_fni2q")
+script = ExtResource("5_hdk6y")
